@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  <% if (messageList.length) {%>
+    <ul>
+      <% messageList.forEach(function(messageItem) { %>
+        <li>
+          <p><%= messageItem.message %></p>
+          <p><%= messageItem.created_at %></p>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+  <form action="/boards/<%= board.board_id %>" method="post" >
+    <input type="text" name="message" required>
+    <button type="submit">投稿</button>
+  </form>
+  <a href="/">トップへ戻る</a>
+</body>
+</html>

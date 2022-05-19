@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  <ul>
+    <% boardList.forEach(function(boardItem) { %>
+      <li>
+        <a href="/boards/<%= boardItem.board_id %>">
+          <p><%= boardItem.title %></p>
+          <p><%= boardItem.created_at %></p>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+  <form action="/" method="post">
+    <label for="title">タイトル:</label>
+    <input type="text" name="title" required><br>
+    <button type="submit">ボード作成</button>
+  </form>
+</body>
+</html>
